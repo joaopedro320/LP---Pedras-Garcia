@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ==============================================================================
+     [QH4 SLOT 1] GOOGLE TAG MANAGER (HEAD)
+     Cole aqui o PRIMEIRO código do GTM (o <script>), o mais alto possível no <head>.
+     Exemplo: <script>(function(w,d,s,l,i){w[l]=w[l]||[];...})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+     Use o mesmo container nas 3 páginas: index.html, obrigado.html e 404.html.
+     ============================================================================== -->
+
+<!-- ==============================================================================
+     [QH4 SLOT 2] VERIFICAÇÕES DE DOMÍNIO
+     Search Console, Meta Business (verificação de domínio) etc.
+     Exemplo: <meta name="google-site-verification" content="XXXX">
+     Exemplo: <meta name="facebook-domain-verification" content="XXXX">
+     ============================================================================== -->
+
+<title>Página não encontrada | Pedras Garcia</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#18344B">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+
+<!-- ==============================================================================
+     [QH4 SLOT 3] META PIXEL (FACEBOOK / INSTAGRAM) DIRETO
+     Só use se o Pixel NÃO estiver dentro do GTM (senão conta em dobro).
+     Cole aqui o código base do Pixel com fbq('init','SEU_PIXEL_ID') e fbq('track','PageView').
+     O evento Lead já dispara sozinho na página de obrigado (assets/js/tracking.js).
+     ============================================================================== -->
+
+<!-- ==============================================================================
+     [QH4 SLOT 4] GOOGLE ADS / GA4 DIRETO (gtag.js)
+     Só use se NÃO estiver usando o GTM.
+     Exemplo: <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','AW-XXXXXXXXX');</script>
+     Depois preencha googleAdsConversao em assets/js/tracking.js (SLOT 7).
+     ============================================================================== -->
+</head>
+<body class="pagina-simples">
+<!-- ==============================================================================
+     [QH4 SLOT 5] GOOGLE TAG MANAGER (NOSCRIPT)
+     Cole aqui o SEGUNDO código do GTM (o <noscript><iframe ...>), logo depois de abrir o <body>.
+     ============================================================================== -->
+<main>
+  <div class="caixa">
+    <img class="logo" src="/assets/img/logo-pedras-garcia.png" alt="Pedras Garcia" width="1361" height="196">
+    <div class="regua" aria-hidden="true"></div>
+    <h1>Esta página não existe</h1>
+    <p>O endereço pode ter mudado ou foi digitado com algum erro. Volte para o site ou fale com a nossa equipe pelo WhatsApp.</p>
+    <div class="acoes">
+      <a class="btn btn-azul" href="/">Voltar ao site</a>
+      <a class="btn btn-linha" href="#" data-wa="404">Falar no WhatsApp</a>
+    </div>
+  </div>
+</main>
+<script src="/assets/js/tracking.js"></script>
+<script>
+document.querySelectorAll("[data-wa]").forEach(function (a) {
+  a.href = qh4WaLink(QH4.mensagemBotao); a.target = "_blank"; a.rel = "noopener";
+  a.addEventListener("click", function () { qh4Track("whatsapp_click", { wa_local: "404" }); });
+});
+</script>
+<!-- ==============================================================================
+     [QH4 SLOT 6] SCRIPTS DE TERCEIROS
+     Chat, heatmap (Clarity, Hotjar), widgets etc. Sempre antes do fechamento do body.
+     A 404 não leva o script do IVO (SLOT 9) de propósito, pra não sujar o Funil.
+     ============================================================================== -->
+</body>
+</html>

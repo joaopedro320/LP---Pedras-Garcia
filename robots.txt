@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /obrigado.html
+
+Sitemap: https://www.pedrasgarcia.com.br/sitemap.xml

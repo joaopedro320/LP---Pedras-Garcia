@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ==============================================================================
+     [QH4 SLOT 1] GOOGLE TAG MANAGER (HEAD)
+     Cole aqui o PRIMEIRO código do GTM (o <script>), o mais alto possível no <head>.
+     Exemplo: <script>(function(w,d,s,l,i){w[l]=w[l]||[];...})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+     Use o mesmo container nas 3 páginas: index.html, obrigado.html e 404.html.
+     ============================================================================== -->
+
+<!-- ==============================================================================
+     [QH4 SLOT 2] VERIFICAÇÕES DE DOMÍNIO
+     Search Console, Meta Business (verificação de domínio) etc.
+     Exemplo: <meta name="google-site-verification" content="XXXX">
+     Exemplo: <meta name="facebook-domain-verification" content="XXXX">
+     ============================================================================== -->
+
+<title>Pedido recebido | Pedras Garcia</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#18344B">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- ==============================================================================
+     [QH4 SLOT 3] META PIXEL (FACEBOOK / INSTAGRAM) DIRETO
+     Só use se o Pixel NÃO estiver dentro do GTM (senão conta em dobro).
+     Cole aqui o código base do Pixel com fbq('init','SEU_PIXEL_ID') e fbq('track','PageView').
+     O evento Lead já dispara sozinho na página de obrigado (assets/js/tracking.js).
+     ============================================================================== -->
+
+<!-- ==============================================================================
+     [QH4 SLOT 4] GOOGLE ADS / GA4 DIRETO (gtag.js)
+     Só use se NÃO estiver usando o GTM.
+     Exemplo: <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','AW-XXXXXXXXX');</script>
+     Depois preencha googleAdsConversao em assets/js/tracking.js (SLOT 7).
+     ============================================================================== -->
+</head>
+<body class="pagina-simples">
+<!-- ==============================================================================
+     [QH4 SLOT 5] GOOGLE TAG MANAGER (NOSCRIPT)
+     Cole aqui o SEGUNDO código do GTM (o <noscript><iframe ...>), logo depois de abrir o <body>.
+     ============================================================================== -->
+<main>
+  <div class="caixa">
+    <img class="logo" src="assets/img/logo-pedras-garcia.png" alt="Pedras Garcia" width="1361" height="196">
+    <div class="regua" aria-hidden="true"></div>
+    <h1>Pedido de orçamento recebido</h1>
+    <p>Obrigado pelo contato. Vamos abrir o WhatsApp da Pedras Garcia para você enviar as informações e falar com a nossa equipe.</p>
+    <p>Abrindo em <span class="contador" id="contador">4</span> segundos.</p>
+    <div class="acoes">
+      <a class="btn btn-wa" id="abrir-wa" href="#">Abrir WhatsApp agora</a>
+      <a class="btn btn-linha" href="./">Voltar ao site</a>
+    </div>
+  </div>
+</main>
+
+<script src="assets/js/tracking.js"></script>
+<script>
+(function () {
+  var msg = QH4.mensagemPadrao;
+  try { msg = sessionStorage.getItem("pg_wa_msg") || QH4.mensagemPadrao; } catch (e) {}
+  var link = qh4WaLink(msg);
+  var btn = document.getElementById("abrir-wa");
+  btn.href = link;
+  btn.addEventListener("click", function () { qh4Track("whatsapp_click", { wa_local: "obrigado" }); });
+
+  qh4Track("thank_you_view", { form_id: "orcamento" });
+  /* ==========================================================================
+     [QH4 SLOT 8] CONVERSÃO DA PÁGINA DE OBRIGADO
+     Com GTM: nada aqui. Crie a tag de conversão com o acionador de evento "thank_you_view".
+     Sem GTM: o tracking.js já dispara fbq('track','Lead') e a conversão do Google Ads
+     (se googleAdsConversao estiver preenchido no SLOT 7). Código extra de conversão vai aqui.
+     ========================================================================== */
+
+  var n = 4, el = document.getElementById("contador");
+  var t = setInterval(function () {
+    n--; el.textContent = n;
+    if (n <= 0) { clearInterval(t); window.location.href = link; }
+  }, 1000);
+})();
+</script>
+<!-- ==============================================================================
+     [QH4 SLOT 6] SCRIPTS DE TERCEIROS
+     Chat, heatmap (Clarity, Hotjar), widgets etc. Sempre antes do fechamento do body.
+     O script do IVO (Funil) fica no SLOT 9, logo abaixo. Não remova.
+     ============================================================================== -->
+<!-- ==============================================================================
+     [QH4 SLOT 9] SCRIPT DO IVO (FUNIL QH4) . JÁ INSTALADO
+     Mede visitas, rolagem, cliques em CTA e WhatsApp, formulário e página de obrigado no LIA & IVO
+     (ivo.maltabusiness.com.br > Funil), sem GA4, sem cookie e sem dado pessoal.
+     data-lp identifica a LP no Funil: lp-pedras-garcia. Não trocar o endereço do script (é o coletor oficial).
+     Em WordPress/Elementor: Código personalizado no fim do body. Em plugin de cache, excluir api/t do "Atrasar JS".
+     ============================================================================== -->
+<script src="https://app-validacao-lp-sapp-validacao-lp.vercel.app/api/t" data-lp="lp-pedras-garcia" defer></script>
+</body>
+</html>
