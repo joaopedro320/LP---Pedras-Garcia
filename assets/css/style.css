@@ -381,3 +381,8 @@ body.lb-ativo{overflow:hidden}
   .js .rv .regua::before,.js .rv .regua::after,.js .proc li::before,.js .arq .rv li::before{transform:none!important}
   .js .dif-lista li h3::before{transform:translateY(-1px) rotate(45deg)!important}
 }
+
+/* Linha do processo passa por baixo dos círculos */
+.proc::before,.proc::after{z-index:0}
+.proc li{z-index:1}
+.proc li::before{z-index:2}
