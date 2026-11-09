@@ -10,6 +10,18 @@
      Exemplo: <script>(function(w,d,s,l,i){w[l]=w[l]||[];...})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
      Use o mesmo container nas 3 páginas: index.html, obrigado.html e 404.html.
      ============================================================================== -->
+<!-- Google Tag Manager -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TLTR53TC');</script>
+<!-- End Google Tag Manager -->
 
 <!-- ==============================================================================
      [QH4 SLOT 2] VERIFICAÇÕES DE DOMÍNIO
@@ -34,6 +46,23 @@
      Cole aqui o código base do Pixel com fbq('init','SEU_PIXEL_ID') e fbq('track','PageView').
      O evento Lead já dispara sozinho na página de obrigado (assets/js/tracking.js).
      ============================================================================== -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1389617808317453');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1389617808317453&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 
 <!-- ==============================================================================
      [QH4 SLOT 4] GOOGLE ADS / GA4 DIRETO (gtag.js)
@@ -48,6 +77,10 @@
      [QH4 SLOT 5] GOOGLE TAG MANAGER (NOSCRIPT)
      Cole aqui o SEGUNDO código do GTM (o <noscript><iframe ...>), logo depois de abrir o <body>.
      ============================================================================== -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLTR53TC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <main>
   <div class="caixa">
     <img class="logo" src="assets/img/logo-pedras-garcia.png" alt="Pedras Garcia" width="1361" height="196">
